@@ -1,4 +1,4 @@
-export abstract class DioAccount {
+export abstract class BankAccount {
 	private balance: number = 0
 	private _status: boolean = true
 
@@ -32,15 +32,16 @@ export abstract class DioAccount {
 				this.balance += amount;
 				console.log(`You have deposited ${amount}`)
 			} else {
-				console.log('Invalid amount for deposit.');
+				throw new Error("Invalid account status.");
 			}
+		} else {
+			throw new Error("Deposit canceled due to invalid deposit amount.");
 		}
 	}
 
 	withdraw(amount: number) {
 		if (amount <= 0) {
-			console.log("You must withdraw a positive number.");
-			return;
+			throw new Error("You must withdraw a number higher 0.");
 		}
 		if (this.balance >= amount) {
 			this.balance -= amount
@@ -48,7 +49,7 @@ export abstract class DioAccount {
 			console.log(`You have withdrawn ${amount}`) 
 			: console.log("Invalid account status.");
 		} else {
-			console.log("Requested amount unavailable.");
+			throw new Error("Requested amount unavailable");
 		}
 	}
 
