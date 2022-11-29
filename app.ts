@@ -1,5 +1,5 @@
-import StudentAccount from "./class/StudentAccount"
-import { BankAccount } from "./class/BankAccount"
+import StudentAccount from "./packages/tinybank-node/class/StudentAccount"
+import { BankAccount } from "./packages/tinybank-node/class/BankAccount"
 
 
 // Display use cases
